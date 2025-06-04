@@ -1,0 +1,11 @@
+gd32_xifeng\wououi_graph.o: ..\Components\WouoUI_Page\WouoUI_graph.c
+gd32_xifeng\wououi_graph.o: ..\Components\WouoUI_Page\WouoUI_graph.h
+gd32_xifeng\wououi_graph.o: ..\Components\WouoUI_Page\WouoUI_font.h
+gd32_xifeng\wououi_graph.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+gd32_xifeng\wououi_graph.o: ..\Components\WouoUI_Page\WouoUI_common.h
+gd32_xifeng\wououi_graph.o: ..\Components\WouoUI_Page\WouoUI_conf.h
+gd32_xifeng\wououi_graph.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+gd32_xifeng\wououi_graph.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+gd32_xifeng\wououi_graph.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+gd32_xifeng\wououi_graph.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+gd32_xifeng\wououi_graph.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

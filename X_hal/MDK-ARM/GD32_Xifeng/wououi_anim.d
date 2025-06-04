@@ -1,0 +1,10 @@
+gd32_xifeng\wououi_anim.o: ..\Components\WouoUI_Page\WouoUI_anim.c
+gd32_xifeng\wououi_anim.o: ..\Components\WouoUI_Page\WouoUI_anim.h
+gd32_xifeng\wououi_anim.o: ..\Components\WouoUI_Page\WouoUI_common.h
+gd32_xifeng\wououi_anim.o: ..\Components\WouoUI_Page\WouoUI_conf.h
+gd32_xifeng\wououi_anim.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+gd32_xifeng\wououi_anim.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+gd32_xifeng\wououi_anim.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+gd32_xifeng\wououi_anim.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+gd32_xifeng\wououi_anim.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+gd32_xifeng\wououi_anim.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h

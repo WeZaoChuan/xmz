@@ -1,0 +1,9 @@
+.\output\perfc_port_default.o: C:\Users\XiFeng\AppData\Local\Arm\Packs\GorgonMeducer\perf_counter\2.3.3\perfc_port_default.c
+.\output\perfc_port_default.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\output\perfc_port_default.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\output\perfc_port_default.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\output\perfc_port_default.o: C:\Users\XiFeng\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h
+.\output\perfc_port_default.o: C:\Users\XiFeng\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h
+.\output\perfc_port_default.o: C:\Users\XiFeng\AppData\Local\Arm\Packs\GorgonMeducer\perf_counter\2.3.3\perf_counter.h
+.\output\perfc_port_default.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\output\perfc_port_default.o: C:\Users\XiFeng\AppData\Local\Arm\Packs\GorgonMeducer\perf_counter\2.3.3\perfc_port_default.h

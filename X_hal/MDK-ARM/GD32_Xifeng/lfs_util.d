@@ -1,9 +1,0 @@
-gd32_xifeng\lfs_util.o: ..\Components\GD25QXX\lfs_util.c
-gd32_xifeng\lfs_util.o: ..\Components\GD25QXX\lfs_util.h
-gd32_xifeng\lfs_util.o: D:\Keil\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdint.h
-gd32_xifeng\lfs_util.o: D:\Keil\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdbool.h
-gd32_xifeng\lfs_util.o: D:\Keil\ARM\ARM_Compiler_5.06u7\Bin\..\include\string.h
-gd32_xifeng\lfs_util.o: D:\Keil\ARM\ARM_Compiler_5.06u7\Bin\..\include\inttypes.h
-gd32_xifeng\lfs_util.o: D:\Keil\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdlib.h
-gd32_xifeng\lfs_util.o: D:\Keil\ARM\ARM_Compiler_5.06u7\Bin\..\include\assert.h
-gd32_xifeng\lfs_util.o: D:\Keil\ARM\ARM_Compiler_5.06u7\Bin\..\include\stdio.h

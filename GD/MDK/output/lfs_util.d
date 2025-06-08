@@ -1,0 +1,10 @@
+.\output\lfs_util.o: ..\Components\gd25qxx\lfs_util.c
+.\output\lfs_util.o: .\RTE\_McuSTUDIO_F470VET6\Pre_Include_Global.h
+.\output\lfs_util.o: ..\Components\gd25qxx\lfs_util.h
+.\output\lfs_util.o: D:\keil\ARM\ARM_compiler_5.06\Bin\..\include\stdint.h
+.\output\lfs_util.o: D:\keil\ARM\ARM_compiler_5.06\Bin\..\include\stdbool.h
+.\output\lfs_util.o: D:\keil\ARM\ARM_compiler_5.06\Bin\..\include\string.h
+.\output\lfs_util.o: D:\keil\ARM\ARM_compiler_5.06\Bin\..\include\inttypes.h
+.\output\lfs_util.o: D:\keil\ARM\ARM_compiler_5.06\Bin\..\include\stdlib.h
+.\output\lfs_util.o: D:\keil\ARM\ARM_compiler_5.06\Bin\..\include\assert.h
+.\output\lfs_util.o: D:\keil\ARM\ARM_compiler_5.06\Bin\..\include\stdio.h

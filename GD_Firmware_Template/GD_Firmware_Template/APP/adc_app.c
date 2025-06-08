@@ -9,31 +9,9 @@ char adc_filename[32] = {0}; // ADC数据文件名
 static FIL adc_file; // ADC数据文件句柄
 static uint32_t last_adc_time = 0; // 上次ADC采集时间
 
-// 波形分析相关变量
-#define ADC_BUFFER_SIZE 1024
-static uint16_t adc_buffer[ADC_BUFFER_SIZE];
-static uint32_t adc_buffer_index = 0;
-static uint32_t last_zero_crossing = 0;
-static uint32_t zero_crossing_count = 0;
-static uint32_t last_analysis_time = 0;
-
-// 函数声明
-float calculate_frequency_from_adc(void);
-float calculate_peak_to_peak_from_adc(void);
-void analyze_waveform(void);
-
 void adc_task(void)
 {
     convertarr[0] = adc_value[0];
-    
-    // 更新ADC缓冲区
-    if(adc_buffer_index < ADC_BUFFER_SIZE) {
-        adc_buffer[adc_buffer_index++] = adc_value[0];
-    } else {
-        // 缓冲区满，进行波形分析
-        analyze_waveform();
-        adc_buffer_index = 0;
-    }
 
     // 如果正在记录且到达采集间隔
     if (adc_recording_flag && (get_system_ms() - last_adc_time >= 100)) {
@@ -55,65 +33,6 @@ void adc_task(void)
             adc_stop_recording();
         }
     }
-}
-
-void analyze_waveform(void)
-{
-    // 每100ms进行一次波形分析
-    if(get_system_ms() - last_analysis_time < 100) {
-        return;
-    }
-    last_analysis_time = get_system_ms();
-
-    // 计算频率和峰峰值
-    float frequency = calculate_frequency_from_adc();
-    float peak_to_peak = calculate_peak_to_peak_from_adc();
-
-    // 更新全局波形参数
-    extern WaveformParams current_waveform;
-    current_waveform.frequency = frequency;
-    current_waveform.peak_to_peak = peak_to_peak;
-}
-
-float calculate_frequency_from_adc(void)
-{
-    // 使用过零检测方法计算频率
-    uint32_t crossings = 0;
-    uint16_t prev_value = adc_buffer[0];
-    uint16_t mid_point = 2048; // ADC中间值 (4096/2)
-    
-    for(uint32_t i = 1; i < ADC_BUFFER_SIZE; i++) {
-        if((prev_value < mid_point && adc_buffer[i] >= mid_point) ||
-           (prev_value >= mid_point && adc_buffer[i] < mid_point)) {
-            crossings++;
-        }
-        prev_value = adc_buffer[i];
-    }
-    
-    // 计算频率
-    // 假设采样率为100kHz (每10us一个采样点)
-    float sampling_period = 0.00001f; // 10us
-    float total_time = ADC_BUFFER_SIZE * sampling_period;
-    float frequency = (float)crossings / (2.0f * total_time); // 除以2是因为一个周期有两次过零
-    
-    return frequency;
-}
-
-float calculate_peak_to_peak_from_adc(void)
-{
-    uint16_t max_val = 0;
-    uint16_t min_val = 0xFFFF;
-    
-    for(uint32_t i = 0; i < ADC_BUFFER_SIZE; i++) {
-        if(adc_buffer[i] > max_val) max_val = adc_buffer[i];
-        if(adc_buffer[i] < min_val) min_val = adc_buffer[i];
-    }
-    
-    // 将ADC值转换为电压值
-    float v_max = (float)max_val * 3.3f / 4096.0f;
-    float v_min = (float)min_val * 3.3f / 4096.0f;
-    
-    return v_max - v_min;
 }
 
 void adc_start_recording(void)

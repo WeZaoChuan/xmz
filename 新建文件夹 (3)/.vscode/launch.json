@@ -1,0 +1,19 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "cwd": "${workspaceRoot}",
+            "type": "cortex-debug",
+            "request": "launch",
+            "name": "GD32_Xifeng: OpenOCD",
+            "servertype": "openocd",
+            "executable": "H:/code/GD32_Xifeng_ADDA/MDK-ARM/Eide/build/GD32_Xifeng/GD32_Xifeng.elf",
+            "runToEntryPoint": "main",
+            "configFiles": [
+                "interface/cmsis-dap.cfg",
+                "target/stm32f4x.cfg"
+            ],
+            "svdFile": ".pack/GigaDevice/GD32F4xx_DFP.3.0.3/SVD/GD32F4xx.svd"
+        }
+    ]
+}

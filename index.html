@@ -3,46 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2027 通信电子考研择校宝典</title>
+    <title>择校宝典 2.0 专业版</title>
     <style>
-        :root { --primary: #2563eb; --bg: #f8fafc; --card-bg: #ffffff; --text-main: #1e293b; }
-        body { font-family: 'PingFang SC', sans-serif; background-color: var(--bg); margin: 0; color: var(--text-main); }
-
-        /* 列表视图与详情视图控制 */
-        #listView, #detailView { transition: opacity 0.3s ease; }
+        :root { --primary: #2563eb; --bg: #f3f4f6; --card-bg: #ffffff; }
+        body { font-family: 'PingFang SC', sans-serif; background: var(--bg); margin: 0; color: #1f2937; }
         .hidden { display: none !important; }
-
-        /* 顶部通栏 */
-        .header { position: sticky; top: 0; z-index: 100; background: #fff; padding: 1rem; border-bottom: 1px solid #e2e8f0; display: flex; align-items: center; justify-content: center; }
-        .back-btn { position: absolute; left: 1rem; cursor: pointer; color: var(--primary); font-weight: bold; }
+        .header { position: sticky; top: 0; z-index: 100; background: #fff; padding: 1rem; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; }
+        .back-btn { position: absolute; left: 1rem; color: var(--primary); cursor: pointer; font-weight: bold; }
         
-        /* 搜索框 */
-        .search-section { padding: 1.5rem; text-align: center; }
-        .search-input { width: 100%; max-width: 600px; padding: 12px 20px; border-radius: 50px; border: 2px solid #cbd5e1; outline: none; }
-
-        /* 列表卡片 */
+        /* 搜索与容器 */
+        .search-area { padding: 1.5rem; text-align: center; }
+        .search-input { width: 90%; max-width: 500px; padding: 12px 25px; border-radius: 30px; border: 2px solid #d1d5db; outline: none; }
         .container { max-width: 800px; margin: 0 auto; padding: 1rem; }
-        .school-card { background: #fff; border-radius: 12px; padding: 1.2rem; margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid #e2e8f0; }
-        .school-card:hover { border-color: var(--primary); }
+        .school-card { background: #fff; border-radius: 12px; padding: 1.2rem; margin-bottom: 1rem; cursor: pointer; border: 1px solid #e5e7eb; }
 
-        /* 详情页导航栏 (Tabs) */
-        .tab-nav { display: flex; background: #fff; border-bottom: 1px solid #e2e8f0; overflow-x: auto; white-space: nowrap; position: sticky; top: 57px; z-index: 99; }
-        .tab-item { flex: 1; text-align: center; padding: 12px 15px; font-size: 0.9rem; color: #64748b; cursor: pointer; border-bottom: 2px solid transparent; }
-        .tab-item.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: bold; }
+        /* 主导航栏 (一级) */
+        .main-nav { display: flex; background: #fff; border-bottom: 1px solid #e5e7eb; position: sticky; top: 57px; z-index: 99; }
+        .nav-item { flex: 1; text-align: center; padding: 12px; font-size: 0.9rem; color: #6b7280; cursor: pointer; border-bottom: 3px solid transparent; }
+        .nav-item.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: bold; }
 
-        /* 详情内容排版 */
-        .detail-body { padding: 1rem; max-width: 800px; margin: 0 auto; background: #fff; min-height: 80vh; }
-        .content-section { display: none; }
-        .content-section.active { display: block; animation: fadeIn 0.3s; }
+        /* 子导航栏 (二级 - 仅在招生信息内显示) */
+        .sub-nav { display: flex; gap: 10px; padding: 10px 1rem; background: #f9fafb; overflow-x: auto; border-bottom: 1px solid #e5e7eb; }
+        .sub-item { padding: 6px 15px; background: #fff; border: 1px solid #d1d5db; border-radius: 20px; font-size: 0.8rem; white-space: nowrap; cursor: pointer; }
+        .sub-item.active { background: var(--primary); color: #fff; border-color: var(--primary); }
+
+        /* 内容区 */
+        .detail-content { padding: 1rem; background: #fff; min-height: 80vh; }
+        .page-sec { display: none; }
+        .page-sec.active { display: block; animation: fadeIn 0.2s; }
         
-        /* 表格与文字美化 */
-        h4 { color: #1e40af; border-left: 4px solid var(--primary); padding-left: 10px; margin-top: 1.5rem; }
-        .sub-title { background: #f1f5f9; padding: 4px 10px; border-radius: 4px; display: inline-block; margin: 10px 0; font-weight: bold; font-size: 0.9rem; }
-        .table-wrapper { overflow-x: auto; margin: 1rem 0; border: 1px solid #e2e8f0; border-radius: 8px; }
-        table { width: 100%; border-collapse: collapse; font-size: 0.85rem; min-width: 600px; }
-        th { background: #f8fafc; padding: 10px; border: 1px solid #e2e8f0; }
-        td { padding: 10px; border: 1px solid #e2e8f0; text-align: center; }
-
+        /* 表格样式 */
+        .table-wrapper { overflow-x: auto; margin: 1rem 0; }
+        table { width: 100%; border-collapse: collapse; font-size: 0.8rem; min-width: 500px; }
+        td { border: 1px solid #e5e7eb; padding: 10px; text-align: center; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
     </style>
 </head>
@@ -50,94 +43,90 @@
 
     <div id="listView">
         <div class="header"><h1>择校宝典 2.0</h1></div>
-        <div class="search-section">
-            <input type="text" class="search-input" id="searchInput" placeholder="搜索院校、城市、层次...">
-        </div>
-        <div class="container" id="listContainer"></div>
+        <div class="search-area"><input type="text" class="search-input" id="search" placeholder="搜索学校..."></div>
+        <div class="container" id="list"></div>
     </div>
 
     <div id="detailView" class="hidden">
-        <div class="header">
-            <span class="back-btn" onclick="showList()">← 返回</span>
-            <h1 id="detailTitle">院校详情</h1>
-        </div>
+        <div class="header"><span class="back-btn" onclick="goList()">← 返回</span><h1 id="title">详情</h1></div>
         
-        <div class="tab-nav">
-            <div class="tab-item active" onclick="switchTab(0)">招生信息</div>
-            <div class="tab-item" onclick="switchTab(1)">奖学金</div>
-            <div class="tab-item" onclick="switchTab(2)">报考建议</div>
-            <div class="tab-item" onclick="switchTab(3)">信息渠道</div>
+        <div class="main-nav">
+            <div class="nav-item active" onclick="switchMain(0)">招生信息</div>
+            <div class="nav-item" onclick="switchMain(1)">奖学金</div>
+            <div class="nav-item" onclick="switchMain(2)">报考建议</div>
         </div>
 
-        <div class="detail-body" id="detailBody">
-            <div id="sec-0" class="content-section active"></div>
-            <div id="sec-1" class="content-section"></div>
-            <div id="sec-2" class="content-section"></div>
-            <div id="sec-3" class="content-section"></div>
+        <div id="subBar" class="sub-nav">
+            <div class="sub-item active" onclick="switchSub(0)">招生目录/科目</div>
+            <div class="sub-item" onclick="switchSub(1)">成绩计算方法</div>
+            <div class="sub-item" onclick="switchSub(2)">历年分数线</div>
+        </div>
+
+        <div class="detail-content">
+            <div id="m-0-0" class="page-sec active"></div>
+            <div id="m-0-1" class="page-sec"></div>
+            <div id="m-0-2" class="page-sec"></div>
+            <div id="m-1" class="page-sec"></div>
+            <div id="m-2" class="page-sec"></div>
         </div>
     </div>
 
     <script>
-        let allData = [];
-        // 加载 V6 生成的 data.json
-        fetch('data.json').then(r => r.json()).then(data => {
-            allData = data;
-            renderList(data);
-        });
+        let db = [];
+        fetch('data.json').then(r => r.json()).then(data => { db = data; render(data); });
 
-        function renderList(data) {
-            const container = document.getElementById('listContainer');
-            container.innerHTML = '';
-            data.forEach((school, index) => {
-                const card = document.createElement('div');
-                card.className = 'school-card';
-                card.innerHTML = `
-                    <div style="font-weight:bold; font-size:1.1rem;">${school.code} ${school.name}</div>
-                    <div style="font-size:0.8rem; color:#64748b; margin-top:5px;">
-                        ${school.level} | ${school.location} | 难度: ${school.difficulty}
-                    </div>
-                `;
-                card.onclick = () => showDetail(school);
-                container.appendChild(card);
+        function render(data) {
+            const list = document.getElementById('list');
+            list.innerHTML = '';
+            data.forEach(s => {
+                const div = document.createElement('div');
+                div.className = 'school-card';
+                div.innerHTML = `<strong>${s.name}</strong><div style="font-size:0.8rem;color:#666;">${s.level} | ${s.location}</div>`;
+                div.onclick = () => open(s);
+                list.appendChild(div);
             });
         }
 
-        function showDetail(school) {
+        function open(s) {
             document.getElementById('listView').classList.add('hidden');
             document.getElementById('detailView').classList.remove('hidden');
-            document.getElementById('detailTitle').innerText = school.name;
-            window.scrollTo(0,0);
-
-            // 填充各个模块内容
-            document.getElementById('sec-0').innerHTML = school.sec_admission || '暂无招生目录信息';
-            document.getElementById('sec-1').innerHTML = school.sec_scholarship || '暂无奖学金信息';
-            document.getElementById('sec-2').innerHTML = school.sec_advice || '暂无报考建议信息';
-            document.getElementById('sec-3').innerHTML = school.sec_contact || '暂无联系渠道信息';
+            document.getElementById('title').innerText = s.name;
             
-            switchTab(0); // 默认显示第一个标签
+            // 填充内容
+            document.getElementById('m-0-0').innerHTML = s.admission_catalog || "暂无目录数据";
+            document.getElementById('m-0-1').innerHTML = s.admission_score || "暂无计算方法数据";
+            document.getElementById('m-0-2').innerHTML = s.admission_lines || "暂无分数线数据";
+            document.getElementById('m-1').innerHTML = s.sec_scholarship || "暂无奖学金数据";
+            document.getElementById('m-2').innerHTML = s.sec_advice || "暂无建议数据";
+            
+            switchMain(0);
         }
 
-        function showList() {
+        function switchMain(idx) {
+            document.querySelectorAll('.nav-item').forEach((n, i) => n.classList.toggle('active', i === idx));
+            document.getElementById('subBar').classList.toggle('hidden', idx !== 0);
+            
+            // 隐藏所有，只显示选中的主模块
+            document.querySelectorAll('.page-sec').forEach(p => p.classList.remove('active'));
+            if(idx === 0) { switchSub(0); } 
+            else { document.getElementById('m-' + idx).classList.add('active'); }
+        }
+
+        function switchSub(idx) {
+            document.querySelectorAll('.sub-item').forEach((s, i) => s.classList.toggle('active', i === idx));
+            document.querySelectorAll('[id^="m-0-"]').forEach(p => p.classList.remove('active'));
+            document.getElementById('m-0-' + idx).classList.add('active');
+        }
+
+        function goList() { 
             document.getElementById('detailView').classList.add('hidden');
-            document.getElementById('listView').classList.remove('hidden');
+            document.getElementById('listView').classList.remove('hidden'); 
         }
 
-        function switchTab(index) {
-            const tabs = document.querySelectorAll('.tab-item');
-            const sections = document.querySelectorAll('.content-section');
-            tabs.forEach((t, i) => {
-                t.classList.toggle('active', i === index);
-                sections[i].classList.toggle('active', i === index);
-            });
-            window.scrollTo(0,0);
-        }
-
-        // 搜索功能
-        document.getElementById('searchInput').addEventListener('input', (e) => {
-            const kw = e.target.value.toLowerCase().trim();
-            const filtered = allData.filter(s => `${s.name}${s.code}${s.location}`.toLowerCase().includes(kw));
-            renderList(filtered);
-        });
+        document.getElementById('search').oninput = (e) => {
+            const kw = e.target.value.toLowerCase();
+            render(db.filter(s => s.name.includes(kw) || s.location.includes(kw)));
+        };
     </script>
 </body>
 </html>
